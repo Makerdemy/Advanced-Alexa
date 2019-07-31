@@ -1,0 +1,19 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:314886469268:function:6ec21b6d-1713-4806-9dbd-4c980d986c23:Release_0"
+        },
+        "interfaces": []
+      }
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "with entity resolution"
+        }
+      }
+    }
+  }
+}

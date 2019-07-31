@@ -1,0 +1,116 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "with entity resolution",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "captureusername",
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.US_FIRST_NAME"
+            }
+          ],
+          "samples": [
+            "Me {name}",
+            "{name} is my name",
+            "I am {name}",
+            "Myself {name}",
+            "{name}",
+            "my name is {name}"
+          ]
+        },
+        {
+          "name": "OpenApplicationIntent",
+          "slots": [
+            {
+              "name": "file",
+              "type": "filetype"
+            }
+          ],
+          "samples": [
+            "open {file} ",
+            "open {file} document",
+            "{file} open please",
+            "Can you please open {file}",
+            "{file}",
+            "Open the {file}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "excel file",
+                "synonyms": [
+                  "excel sheet file",
+                  "excel file",
+                  "csv",
+                  "sheet",
+                  "excel sheet"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "ppt",
+                "synonyms": [
+                  "powerpoint file",
+                  "ms powerpoint",
+                  "power point",
+                  "powerpoint"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "google docs",
+                "synonyms": [
+                  "doc",
+                  "docs",
+                  "google docs"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "word document",
+                "synonyms": [
+                  "MS word",
+                  "Microsoft 2016",
+                  "msword",
+                  "MS word",
+                  "microsoft word file",
+                  "microsoft word",
+                  "word file",
+                  "word",
+                  "ms word"
+                ]
+              }
+            }
+          ],
+          "name": "filetype"
+        }
+      ]
+    }
+  },
+  "version": "4"
+}

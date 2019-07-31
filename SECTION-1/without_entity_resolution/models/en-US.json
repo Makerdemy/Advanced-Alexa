@@ -1,0 +1,136 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "without entity resolution",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "captureusername",
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.US_FIRST_NAME"
+            }
+          ],
+          "samples": [
+            "I'm {name}",
+            "{name} is my name",
+            "Myself {name}",
+            "I am {name}",
+            "My name is {name}",
+            "{name}"
+          ]
+        },
+        {
+          "name": "OpenApplicationIntent",
+          "slots": [
+            {
+              "name": "file",
+              "type": "filetype"
+            }
+          ],
+          "samples": [
+            "Open the {file}",
+            "Can you please open {file}",
+            "{file}",
+            "please open {file}",
+            "open {file}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "ms word"
+              }
+            },
+            {
+              "name": {
+                "value": "doc"
+              }
+            },
+            {
+              "name": {
+                "value": "docs"
+              }
+            },
+            {
+              "name": {
+                "value": "google docs"
+              }
+            },
+            {
+              "name": {
+                "value": "msword"
+              }
+            },
+            {
+              "name": {
+                "value": "open office"
+              }
+            },
+            {
+              "name": {
+                "value": "power point"
+              }
+            },
+            {
+              "name": {
+                "value": "word processor"
+              }
+            },
+            {
+              "name": {
+                "value": "spreadsheets"
+              }
+            },
+            {
+              "name": {
+                "value": "microsoft excel"
+              }
+            },
+            {
+              "name": {
+                "value": "excel"
+              }
+            },
+            {
+              "name": {
+                "value": "excel file"
+              }
+            },
+            {
+              "name": {
+                "value": "ms excel"
+              }
+            },
+            {
+              "name": {
+                "value": "word document"
+              }
+            }
+          ],
+          "name": "filetype"
+        }
+      ]
+    }
+  },
+  "version": "6"
+}
