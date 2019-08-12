@@ -1,8 +1,11 @@
-// This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK (v2).
-// Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
-// session persistence, api calls, and more.
+// MAKERDEMY- without entity resolution skill
+// This code sample demonstrates handling intents using Alexa Skills Kit SDK (v2).
+// This is the beckend logic for without entity resolution skill
+// Take the ask sdk core version package
+
 const Alexa = require('ask-sdk-core');
 
+//Handler for handling the launchrequest
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
@@ -16,6 +19,7 @@ const LaunchRequestHandler = {
     }
 };
 
+//Handler for capturing the username
 const captureNameIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -23,7 +27,9 @@ const captureNameIntentHandler = {
     },
     handle(handlerInput) {
         const name = handlerInput.requestEnvelope.request.intent.slots.name.value;
-        const speechText = `hey hai ${name}! I can open any application for you to write or read,just ask me open word or open google docs`
+        //Username is stored in the "name" constant
+        const speechText = `hey hai ${name}! I can open any application for you to 
+        write or read,just ask me open word or open google docs`
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
@@ -31,31 +37,43 @@ const captureNameIntentHandler = {
     }
 };
 
+//Intent handler for opening the respective application
 const openingintentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'OpenApplicationIntent';
     },
     handle(handlerInput) {
-        const filetypereq = handlerInput.requestEnvelope.request.intent.slots.file.value;
-        const status = handlerInput.requestEnvelope.request.intent.slots.file.resolutions.resolutionsPerAuthority[0].status.code;
+        const filetypereq = handlerInput.requestEnvelope.request.intent.slots.file.value;  //stores the user spoken value
         
         var speechText;
-        if(filetypereq === "ms word" || filetypereq === "word" || filetypereq === "word document" || filetypereq === "word file" || filetypereq === "msword")
+        if(filetypereq === "ms word" || filetypereq === "word" || filetypereq === "word document"
+        || filetypereq === "word file" || filetypereq === "msword")
         {
-            const filetyperes = "word document";
+            const filetyperes = "word document"; //we need to resolve to the main slot value,
+            //here word document is the main slot value for all synonymns of microsoft word
+            
             speechText = `Opening your ${filetyperes}`;
         }
-        else if(filetypereq === "ppt" || filetypereq === "powerpoint" || filetypereq === "presentation" || filetypereq === "slides" || filetypereq === "ms powerpoint")
+        
+        else if(filetypereq === "ppt" || filetypereq === "powerpoint" || filetypereq === "presentation" 
+        || filetypereq === "slides" || filetypereq === "ms powerpoint")
         {
-            const filetyperes = "ppt";
+            const filetyperes = "ppt"; //we need to resolve to the main slot value,
+            //here ppt is the main slot value for all synonymns of microsoft powerpoint
+            
             speechText = `Opening your ${filetyperes}`;
         }
+        
         else if(filetypereq === "google docs" || filetypereq === "doc" || filetypereq === "docs")
         {
-            const filetyperes = "google doc";
+            const filetyperes = "google doc"; //we need to resolve to the main slot value,
+            //here google doc is the main slot value for all synonymns of google docs
+            
             speechText = `Opening your ${filetyperes}`;
         }
+        
+        //else user asks to open other than these applications
         else
         {
             speechText = `Sorry I cannot open the ${filetypereq} file `;
@@ -63,10 +81,11 @@ const openingintentHandler = {
         
         return handlerInput.responseBuilder
             .speak(speechText)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
+
+//Handler for helpIntent,if the user asks for help regarding this skill
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -81,6 +100,8 @@ const HelpIntentHandler = {
             .getResponse();
     }
 };
+
+//Handler for Cancel Intent or Stop Intent,if the user says exits, stop or cancel 
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -94,6 +115,8 @@ const CancelAndStopIntentHandler = {
             .getResponse();
     }
 };
+
+//Handler for handling the Session Ended Intent, when the session ends 
 const SessionEndedRequestHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
@@ -105,9 +128,7 @@ const SessionEndedRequestHandler = {
 };
 
 // The intent reflector is used for interaction model testing and debugging.
-// It will simply repeat the intent the user said. You can create custom handlers
-// for your intents by defining them above, then also adding them to the request
-// handler chain below.
+// It will return the intent that is triggered for a utterance from the user
 const IntentReflectorHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest';
