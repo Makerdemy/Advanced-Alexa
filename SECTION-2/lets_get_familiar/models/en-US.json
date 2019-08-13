@@ -1,339 +1,361 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "get familiar dm",
-      "intents": [
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "get familiar with dm",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "UserInformationIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.US_FIRST_NAME",
+                            "samples": [
+                                "I'm {name}",
+                                "My name is {name}",
+                                "I am {name}"
+                            ]
+                        },
+                        {
+                            "name": "profession",
+                            "type": "AMAZON.ProfessionalType",
+                            "samples": [
+                                "I am an {profession}",
+                                "I am working since {experience} years in {companyname} as a {profession}",
+                                "I work for {companyname} as {profession}",
+                                "I am working in {companyname} as a {profession}",
+                                "I am working as {profession}",
+                                "I am a {profession}"
+                            ]
+                        },
+                        {
+                            "name": "companyname",
+                            "type": "AMAZON.Corporation"
+                        },
+                        {
+                            "name": "experience",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "{profession}",
+                        "{companyname} is my college name and I am in {experience} th year",
+                        "{companyname}",
+                        "I am from {companyname} and I am currently in {experience} th year",
+                        "I am a {profession} of {companyname} studying {experience} year",
+                        "I am a {profession} in {companyname} doing my {experience} year",
+                        "I am an {profession}",
+                        "I am {name} working as a {profession} in {companyname} from {experience} years",
+                        "I am {name} I work as {profession} in {companyname}",
+                        "I am {name} and I am studying in  {companyname}",
+                        "I am {name}  {profession}",
+                        "I am {name} and I am an {profession}",
+                        "I am {profession} {name}",
+                        "I am in {experience} th year of my {profession}",
+                        "I study {profession}",
+                        "I am a {profession} of {companyname}",
+                        "I am a {profession} in {companyname}",
+                        "I am working as a {profession} in {companyname} for {experience} years",
+                        "I am not studying",
+                        "I am the {profession}",
+                        "I work as {profession}",
+                        "I am a {profession} by heart but a {profession} for living",
+                        "I am a {profession}",
+                        "{name}",
+                        "I am the great {name}",
+                        "I am known as {name}",
+                        "I'm {name}",
+                        "I am {name}",
+                        "My name is {name}"
+                    ]
+                },
+                {
+                    "name": "UserInterestIntent",
+                    "slots": [
+                        {
+                            "name": "sports",
+                            "type": "AMAZON.Sport",
+                            "samples": [
+                                "I like playing {sports}",
+                                "{sports}",
+                                "I like {sports}",
+                                "I love {sports}"
+                            ]
+                        },
+                        {
+                            "name": "hobby",
+                            "type": "hobbiestype",
+                            "samples": [
+                                "My hobbie is {hobby}",
+                                "My hobbies are {hobby}"
+                            ]
+                        },
+                        {
+                            "name": "color",
+                            "type": "AMAZON.Color"
+                        }
+                    ],
+                    "samples": [
+                        "{hobby}",
+                        "{sports}",
+                        "{color}",
+                        "I like {color} color that is my favorite color",
+                        "my favorite color is {color}",
+                        "My favorite sport is {sports} and my hobby is to {hobby}",
+                        "My favorite sport is {sports} and my hobbies are {hobby} {hobby}",
+                        "I {hobby}",
+                        "I love {hobby} ",
+                        "My hobby is to {hobby}",
+                        "My hobbies are to {hobby} {hobby}",
+                        "My hobbies are {hobby} {hobby}",
+                        "Coming to my hobbies I read books watch Tv",
+                        "My favorite is {sports}",
+                        "my favorite sport is {sports}",
+                        "i like {sports} and {sports}",
+                        "I like {sports} {sports}",
+                        "I like {sports}",
+                        "I watch {sports}",
+                        "I love playing {sports}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "hobbiestype",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "readingbook"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "readingbooks"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "reading book"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dancing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "listening to songs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "walking"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "swimming"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sleeping"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "collecting coins"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "reading thrillers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "watching TV"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "reading books"
+                            }
+                        }
+                    ]
+                }
+            ]
         },
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
+        "dialog": {
+            "intents": [
+                {
+                    "name": "UserInformationIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.US_FIRST_NAME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.158898749976.985291854551"
+                            }
+                        },
+                        {
+                            "name": "profession",
+                            "type": "AMAZON.ProfessionalType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.158898749976.902515526796"
+                            }
+                        },
+                        {
+                            "name": "companyname",
+                            "type": "AMAZON.Corporation",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "experience",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "UserInterestIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "sports",
+                            "type": "AMAZON.Sport",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.152856223443.781298813402"
+                            }
+                        },
+                        {
+                            "name": "hobby",
+                            "type": "hobbiestype",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.152856223443.992885772268"
+                            }
+                        },
+                        {
+                            "name": "color",
+                            "type": "AMAZON.Color",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
         },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "UserInformationIntent",
-          "slots": [
+        "prompts": [
             {
-              "name": "name",
-              "type": "AMAZON.US_FIRST_NAME",
-              "samples": [
-                "I'm {name}",
-                "My name is {name}",
-                "I am {name}"
-              ]
+                "id": "Elicit.Slot.158898749976.985291854551",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I keep all your information safe with me, so please feel free and tell me your name"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "My name is Alexa, what is your good name?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "My name is Alexa, whats yours"
+                    }
+                ]
             },
             {
-              "name": "profession",
-              "type": "AMAZON.ProfessionalType",
-              "samples": [
-                "I am an {profession}",
-                "I am working since {experience} years in {companyname} as a {profession}",
-                "I work for {companyname} as {profession}",
-                "I am working in {companyname} as a {profession}",
-                "I am working as {profession}",
-                "I am a {profession}"
-              ]
+                "id": "Elicit.Slot.158898749976.902515526796",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "what is your profession"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is your professiom"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What you do for living"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Are you studying or working"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What do you do, studying or job?"
+                    }
+                ]
             },
             {
-              "name": "companyname",
-              "type": "AMAZON.Corporation"
+                "id": "Elicit.Slot.152856223443.781298813402",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I like football very much, which sport do you like"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which sport do you like"
+                    }
+                ]
             },
             {
-              "name": "experience",
-              "type": "AMAZON.NUMBER"
+                "id": "Elicit.Slot.152856223443.992885772268",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I didn't get your hobbies, what are your hobbies"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "what is your hobby"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "what are your hobbies"
+                    }
+                ]
             }
-          ],
-          "samples": [
-            "I am {name} I work as {profession} in {companyname}",
-            "I am {name} and I am studying in  {companyname}",
-            "I am {name}  {profession}",
-            "I am {name} and I am an {profession}",
-            "I am {profession} {name}",
-            "I am in {experience} th year of my {profession}",
-            "I study {profession}",
-            "I am a {profession} of {companyname}",
-            "I am a {profession} in {companyname}",
-            "I am working as a {profession} in {companyname} for {experience} years",
-            "I am not studying",
-            "I am the {profession}",
-            "I work as {profession}",
-            "I am a {profession} by heart but a {profession} for living",
-            "I am a {profession}",
-            "{name}",
-            "I am the great {name}",
-            "I am known as {name}",
-            "I'm {name}",
-            "I am {name}",
-            "My name is {name}"
-          ]
-        },
-        {
-          "name": "UserInterestIntent",
-          "slots": [
-            {
-              "name": "sports",
-              "type": "AMAZON.Sport",
-              "samples": [
-                "I like playing {sports}",
-                "{sports}",
-                "I like {sports}",
-                "I love {sports}"
-              ]
-            },
-            {
-              "name": "hobbie",
-              "type": "hobbiestype",
-              "samples": [
-                "My hobbie is {hobbie}",
-                "My hobbies are {hobbie}"
-              ]
-            },
-            {
-              "name": "color",
-              "type": "AMAZON.Color"
-            }
-          ],
-          "samples": [
-            "{hobbie}",
-            "{sports}",
-            "{color}",
-            "I like {color} color that is my favorite color",
-            "my favorite color is {color}",
-            "My favorite sport is {sports} and my hobby is to {hobbie}",
-            "My favorite sport is {sports} and my hobbies are {hobbie} {hobbie}",
-            "I {hobbie}",
-            "I love {hobbie} ",
-            "My hobby is to {hobbie}",
-            "My hobbies are to {hobbie} {hobbie}",
-            "My hobbies are {hobbie} {hobbie}",
-            "Coming to my hobbies I read books watch Tv",
-            "My favorite is {sports}",
-            "my favorite sport is {sports}",
-            "i like {sports} and {sports}",
-            "I like {sports} {sports}",
-            "I like {sports}",
-            "I watch {sports}",
-            "I love playing {sports}"
-          ]
-        }
-      ],
-      "types": [
-        {
-          "values": [
-            {
-              "name": {
-                "value": "dancing"
-              }
-            },
-            {
-              "name": {
-                "value": "listening to songs"
-              }
-            },
-            {
-              "name": {
-                "value": "walking"
-              }
-            },
-            {
-              "name": {
-                "value": "swimming"
-              }
-            },
-            {
-              "name": {
-                "value": "sleeping"
-              }
-            },
-            {
-              "name": {
-                "value": "collecting coins"
-              }
-            },
-            {
-              "name": {
-                "value": "reading thrillers"
-              }
-            },
-            {
-              "name": {
-                "value": "watching TV"
-              }
-            },
-            {
-              "name": {
-                "value": "reading books"
-              }
-            }
-          ],
-          "name": "hobbiestype"
-        }
-      ]
-    },
-    "dialog": {
-      "intents": [
-        {
-          "name": "UserInformationIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "name",
-              "type": "AMAZON.US_FIRST_NAME",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Slot.158898749976.985291854551"
-              }
-            },
-            {
-              "name": "profession",
-              "type": "AMAZON.ProfessionalType",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Slot.158898749976.902515526796"
-              }
-            },
-            {
-              "name": "companyname",
-              "type": "AMAZON.Corporation",
-              "elicitationRequired": false,
-              "confirmationRequired": false,
-              "prompts": {}
-            },
-            {
-              "name": "experience",
-              "type": "AMAZON.NUMBER",
-              "elicitationRequired": false,
-              "confirmationRequired": false,
-              "prompts": {}
-            }
-          ]
-        },
-        {
-          "name": "UserInterestIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "sports",
-              "type": "AMAZON.Sport",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Slot.152856223443.781298813402"
-              }
-            },
-            {
-              "name": "hobbie",
-              "type": "hobbiestype",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Slot.152856223443.992885772268"
-              }
-            },
-            {
-              "name": "color",
-              "type": "AMAZON.Color",
-              "elicitationRequired": false,
-              "confirmationRequired": false,
-              "prompts": {}
-            }
-          ],
-          "delegationStrategy": "SKILL_RESPONSE"
-        }
-      ],
-      "delegationStrategy": "ALWAYS"
-    },
-    "prompts": [
-      {
-        "id": "Elicit.Slot.158898749976.985291854551",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "I keep all your information safe with me, so please feel free and tell me your name"
-          },
-          {
-            "type": "PlainText",
-            "value": "My name is Alexa, what is your good name?"
-          },
-          {
-            "type": "PlainText",
-            "value": "My name is Alexa, whats yours"
-          }
         ]
-      },
-      {
-        "id": "Elicit.Slot.158898749976.902515526796",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "what is your profession"
-          },
-          {
-            "type": "PlainText",
-            "value": "What is your professiom"
-          },
-          {
-            "type": "PlainText",
-            "value": "What you do for living"
-          },
-          {
-            "type": "PlainText",
-            "value": "Are you studying or working"
-          },
-          {
-            "type": "PlainText",
-            "value": "What do you do, studying or job?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.152856223443.781298813402",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "I like football very much, which sport do you like"
-          },
-          {
-            "type": "PlainText",
-            "value": "Which sport do you like"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.152856223443.992885772268",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "I didn't get your hobbies, what are your hobbies"
-          },
-          {
-            "type": "PlainText",
-            "value": "what is your hobby"
-          },
-          {
-            "type": "PlainText",
-            "value": "what are your hobbies"
-          }
-        ]
-      }
-    ]
-  },
-  "version": "12"
+    }
 }
