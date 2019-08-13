@@ -1,158 +1,157 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "get familiar",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "NameIntent",
-          "slots": [
-            {
-              "name": "name",
-              "type": "AMAZON.US_FIRST_NAME"
-            }
-          ],
-          "samples": [
-            "En peru {name}",
-            "alexa open get familiar and say I am {name}",
-            "alexa say get familiar that I am {name}",
-            "Mera naam {name}",
-            "My name is {name} alexa",
-            "Hai alexa my name is {name}",
-            "{name} is my name",
-            "{name}",
-            "My name is {name}"
-          ]
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "WorkIntent",
-          "slots": [
-            {
-              "name": "job",
-              "type": "AMAZON.Professional"
-            },
-            {
-              "name": "place",
-              "type": "AMAZON.US_CITY"
-            },
-            {
-              "name": "year",
-              "type": "AMAZON.NUMBER"
-            }
-          ],
-          "samples": [
-            "I am a {job} ",
-            "I am working as a {job} in {place} from {year} years",
-            "I am studying in {place}",
-            "I am doing a {job} job",
-            "I am a {job} student ",
-            "I am a {year} student in {job}",
-            "I am currently in my {job}",
-            "I am studying {job}",
-            "I am working as a {job} in {place}"
-          ]
-        },
-        {
-          "name": "FavoriteSportIntent",
-          "slots": [
-            {
-              "name": "sport",
-              "type": "AMAZON.Sport"
-            }
-          ],
-          "samples": [
-            "I play {sport}",
-            "I love to play {sport}",
-            "{sport} is most loved by me",
-            "I think {sport} have a great influnence on me So {sport} is my favorite",
-            "{sport}",
-            "I just lose myself while watching {sport}",
-            "I like watching {sport}",
-            "I love playing {sport}",
-            "My favorite sport is {sport}"
-          ]
-        },
-        {
-          "name": "HobbyIntent",
-          "slots": [
-            {
-              "name": "hobby",
-              "type": "AMAZON.Sport"
-            },
-            {
-              "name": "sport",
-              "type": "AMAZON.Sport"
-            }
-          ],
-          "samples": [
-            "I read books watch Tv",
-            "I generally read books watch TV",
-            "I {hobby}",
-            "I love {hobby} books",
-            "I love {hobby}",
-            "I love reading ",
-            "I play {sport} and watch {hobby}",
-            "My hobbies are {hobby}"
-          ]
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "get familiar",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "NameIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "En peru {name}",
+                        "alexa open get familiar and say I am {name}",
+                        "alexa say get familiar that I am {name}",
+                        "Mera naam {name}",
+                        "My name is {name} alexa",
+                        "Hai alexa my name is {name}",
+                        "{name} is my name",
+                        "{name}",
+                        "My name is {name}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "WorkIntent",
+                    "slots": [
+                        {
+                            "name": "job",
+                            "type": "AMAZON.Professional"
+                        },
+                        {
+                            "name": "place",
+                            "type": "AMAZON.US_CITY"
+                        },
+                        {
+                            "name": "year",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "I am a {job} ",
+                        "I am working as a {job} in {place} from {year} years",
+                        "I am studying in {place}",
+                        "I am doing a {job} job",
+                        "I am a {job} student ",
+                        "I am a {year} student in {job}",
+                        "I am currently in my {job}",
+                        "I am studying {job}",
+                        "I am working as a {job} in {place}"
+                    ]
+                },
+                {
+                    "name": "FavoriteSportIntent",
+                    "slots": [
+                        {
+                            "name": "sport",
+                            "type": "AMAZON.Sport"
+                        }
+                    ],
+                    "samples": [
+                        "I play {sport}",
+                        "I love to play {sport}",
+                        "{sport} is most loved by me",
+                        "I think {sport} have a great influnence on me So {sport} is my favorite",
+                        "{sport}",
+                        "I just lose myself while watching {sport}",
+                        "I like watching {sport}",
+                        "I love playing {sport}",
+                        "My favorite sport is {sport}"
+                    ]
+                },
+                {
+                    "name": "HobbyIntent",
+                    "slots": [
+                        {
+                            "name": "hobby",
+                            "type": "AMAZON.Sport"
+                        },
+                        {
+                            "name": "sport",
+                            "type": "AMAZON.Sport"
+                        }
+                    ],
+                    "samples": [
+                        "I read books watch Tv",
+                        "I generally read books watch TV",
+                        "I {hobby}",
+                        "I love {hobby} books",
+                        "I love {hobby}",
+                        "I love reading ",
+                        "I play {sport} and watch {hobby}",
+                        "My hobbies are {hobby}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "activities",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "watch Tv"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "read books"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "siinging"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "watching TV"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "reading",
+                                "synonyms": [
+                                    "reading novels",
+                                    "reading thriller novels"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "swimming"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
-      ],
-      "types": [
-        {
-          "values": [
-            {
-              "name": {
-                "value": "watch Tv"
-              }
-            },
-            {
-              "name": {
-                "value": "read books"
-              }
-            },
-            {
-              "name": {
-                "value": "siinging"
-              }
-            },
-            {
-              "name": {
-                "value": "watching TV"
-              }
-            },
-            {
-              "name": {
-                "value": "reading",
-                "synonyms": [
-                  "reading novels",
-                  "reading thriller novels"
-                ]
-              }
-            },
-            {
-              "name": {
-                "value": "swimming"
-              }
-            }
-          ],
-          "name": "activities"
-        }
-      ]
     }
-  },
-  "version": "22"
 }
