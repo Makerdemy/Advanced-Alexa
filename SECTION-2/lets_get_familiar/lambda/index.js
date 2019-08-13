@@ -1,12 +1,15 @@
-// This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK (v2).
-// Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
-// session persistence, api calls, and more.
-const Alexa = require('ask-sdk-core');
-var username;
-var job;
-var place;
-var experience;
+// Makerdemy lets get familiar skill 
+// This code sample demonstrates handling intents using Alexa Skills Kit SDK (v2).
+// This is the beckend logic for lets get familiar
+// Take the ask sdk core version package
 
+const Alexa = require('ask-sdk-core');
+var username;    //global variable to store the user name
+var job;         //global variable to store the user's job
+var place;       //global variable to store the user's work place
+var experience;  //global variable to store the user's working experience
+
+//Handler for handling the launchrequest
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
@@ -20,72 +23,118 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
+
+//Handler for handling the UserInformation handler, this gives the user name and user's job information
 const UserInformationIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'UserInformationIntent';
     },
     handle(handlerInput) {
+        
+        //store the user name using the "name" slot
         username = handlerInput.requestEnvelope.request.intent.slots.name.value;
+        
+         //store the user's job using the "profession" slot
         job = handlerInput.requestEnvelope.request.intent.slots.profession.value;
+       
+         //store the user's work place using the "companyname" slot
         place = handlerInput.requestEnvelope.request.intent.slots.companyname.value;
+        
+         //store the user's working experience using the "experience" slot
         experience = handlerInput.requestEnvelope.request.intent.slots.experience.value;
+        
+        //if only username is given
         if(username && !job &&!place && !experience)
         {
           const speechText = "Nice meeting you "+username;
           return handlerInput.responseBuilder
             .speak(speechText)
-            .reprompt('Hai ' +username+ 'Tell me more about yourself!' )
+            .reprompt('Hai ' +username+ ' Tell me more about yourself!' )
             .getResponse();
         }
+        
+        //if username and profession is given
         else if(username && job &&!place && !experience)
         {
-          const speechText = "Interesting! " +username+". Hope you are doing good as a " +job+ ". Now tell me what are your interests like which sport do you like, what is your favorite color, what are your hobbies";
+          //if the user is not a student
+          if(job != 'student')
+          { 
+             const speechText = `Interesting! ${username}. Hope you are doing good as a ${job}. 
+             Now tell me what are your interests like which sport do you like, what is your favorite color,
+             what are your hobbies`;
+             return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt('Hai ' +username+ 'Tell me more about yourself!' )
+            .getResponse();
+          }
+          
+          //if the user is a student
+          else if(job == "student")
+          {
+              const speechText = `Make a good career ${username}, 
+              Wish you have a great passion as a student in your education.
+              You play sports right,so What's your favorite sport`;
+             return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt('Hai ' +username+ 'Tell me more about yourself!' )
+            .getResponse();
+          }
+          
+        }
+        
+        //if the user says his name, job, company name
+        else if(username && job && place && !experience)
+        {
+          const speechText = `Working in ${place}. Woah,
+          Think so you are enjoying your job as ${job},${username}! Now tell me what are your interests like
+          which sport do you like, what is your favorite color, what are your hobbies`;
+          
           return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt('Hai ' +username+ 'Tell me more about yourself!' )
             .getResponse();
         }
-        else if(username && job && place && !experience)
-        {
-          const speechText = "Working in "+place+". Woah, Think so you are enjoying your job as " +job+ ", " +username+ "! Now tell me what are your interests like which sport do you like, what is your favorite color, what are your hobbies";
-          return handlerInput.responseBuilder
-            .speak(speechText)
-            .reprompt('Hai ' +username+ ' Tell me more about yourself!' )
-            .getResponse();
-        }
+        
+         //if the user says his name, job, company name and experience
         else if(username && job && place && experience)
         {
-          const speechText = "You are a "+job+" in" +place+ " and have been working for " +experience+ "years, Cool "+username+ "! Now tell me what are your interests like which sport do you like, what is your favorite color, what are your hobbies" ;
+          const speechText = `You are a ${job} in ${place} and have been working for ${experience} years,
+          Cool ${username}! Now tell me what are your interests like which sport do you like, 
+          what is your favorite color, what are your hobbies` ;
+          
           return handlerInput.responseBuilder
             .speak(speechText)
-            .reprompt('Hai ' +username+ ' Tell me more about yourself!' )
+            .reprompt('Hai ' +username+ 'Tell me more about yourself!' )
             .getResponse();
         }
         
     }
 };
 
+//Starting Dialog Mangement from Backend
+//Checking whether the dialog state is not completed
+//So that we can delegate dialog state 
+//using addDelegateDirective
 const StartedUserInterestIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'UserInterestIntent'
             && handlerInput.requestEnvelope.request.dialogState !== 'COMPLETED';
-    },
-    handle(handlerInput) {
+    },handle(handlerInput) {
+        //store the UserInterestIntent as current Intent
         const currentIntent = handlerInput.requestEnvelope.request.intent;
-        let sport = handlerInput.requestEnvelope.request.intent.slots.sports.value;
-        let hobby = handlerInput.requestEnvelope.request.intent.slots.hobby.value;
-        let color = handlerInput.requestEnvelope.request.intent.slots.color.value;
-        
         return handlerInput.responseBuilder
             .addDelegateDirective(currentIntent)
             .getResponse();
-        
-          
     }
 };
 
+
+//In the DialogState if the user gives information
+//about sports,hobbies
+//then we prompt for color slot from backend
+//using addElicitSlotDirective
 const sportshobbiesgivenInterestIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -98,15 +147,19 @@ const sportshobbiesgivenInterestIntentHandler = {
             
        
           return handlerInput.responseBuilder
-            .speak(`Hey ${username}, which color do you like`)
+            .speak(`Hey ${username}, which color do you like`)//this will be the prompt for color slot
             .reprompt('Hey which color do you like')
-            .addElicitSlotDirective('color')
+            .addElicitSlotDirective('color') //This elicits the colot slot
             .getResponse();
-      
-          
     }
 };
 
+
+
+
+//if the dialog state is completed
+//and we got all the values
+//then give a final goodbye to the user
 const CompletedinterestIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -117,20 +170,25 @@ const CompletedinterestIntentHandler = {
         let sport = handlerInput.requestEnvelope.request.intent.slots.sports.value;
         let hobby = handlerInput.requestEnvelope.request.intent.slots.hobby.value;
         let color = handlerInput.requestEnvelope.request.intent.slots.color.value;
+        //Givivng the color slot a default value
+        //this willbe used if the user doesn't give any value for color slot
         if(!color)
         {
           color = "white";
           
         }
-        const speechText = "Woah you like " +sport+ ". "+username+"! your hobbies are looking good. and I too love " +color+ ". Great! Nice to meet you " +username+ " see you later.";
+        const speechText = `Woah you like ${sport}.${username}! your hobbies are looking good.
+        and I too love ${color}. Great! Nice to meet you ${username}.See you later.`;
        
           return handlerInput.responseBuilder
                  .speak(speechText)
+                 .reprompt(`You do ${hobby} and like ${color}, Nice meeting you ${username}`)
                  .getResponse();
      
     }
 };
 
+//Handler for helpIntent,if the user asks for help regarding this skill
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -145,6 +203,8 @@ const HelpIntentHandler = {
             .getResponse();
     }
 };
+
+//Handler for Cancel Intent or Stop Intent,if the user says exits, stop or cancel
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -158,6 +218,8 @@ const CancelAndStopIntentHandler = {
             .getResponse();
     }
 };
+
+//Handler for handling the Session Ended Intent, when the session ends
 const SessionEndedRequestHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
@@ -169,9 +231,7 @@ const SessionEndedRequestHandler = {
 };
 
 // The intent reflector is used for interaction model testing and debugging.
-// It will simply repeat the intent the user said. You can create custom handlers
-// for your intents by defining them above, then also adding them to the request
-// handler chain below.
+// It will return the intent that is triggered for a utterance from the user
 const IntentReflectorHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest';
@@ -204,3 +264,21 @@ const ErrorHandler = {
             .getResponse();
     }
 };
+
+// This handler acts as the entry point for your skill, routing all request and response
+// payloads to the handlers above. Make sure any new handlers or interceptors you've
+// defined are included below. The order matters - they're processed top to bottom.
+exports.handler = Alexa.SkillBuilders.custom()
+    .addRequestHandlers(
+        LaunchRequestHandler,
+        UserInformationIntentHandler,   //To get user name and job information
+        StartedUserInterestIntentHandler, //To start the dialog management if anything about sports or hobbies is not given
+        sportshobbiesgivenInterestIntentHandler, //To elicit for color slot
+        CompletedinterestIntentHandler,  //To handle the case of dialog management is completed
+        HelpIntentHandler,
+        CancelAndStopIntentHandler,
+        SessionEndedRequestHandler,
+        IntentReflectorHandler) // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
+    .addErrorHandlers(
+        ErrorHandler)
+    .lambda();
