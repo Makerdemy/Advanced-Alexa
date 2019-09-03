@@ -1,0 +1,437 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "carry checker",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "captureusername",
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.US_FIRST_NAME"
+            }
+          ],
+          "samples": [
+            "{name}",
+            "My good name is {name}",
+            "Myself {name}",
+            "I {name}",
+            "I am {name}",
+            "My name is {name}"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "workintent",
+          "slots": [
+            {
+              "name": "work",
+              "type": "worktype"
+            },
+            {
+              "name": "job",
+              "type": "AMAZON.ProfessionalType"
+            }
+          ],
+          "samples": [
+            "{job}",
+            "I am a {job}",
+            "I am {work} as a {job}",
+            "{work}",
+            "I am a  {work}",
+            "I am {work}"
+          ]
+        },
+        {
+          "name": "officekeys",
+          "slots": [
+            {
+              "name": "position",
+              "type": "positiontype"
+            }
+          ],
+          "samples": [
+            "I keep my office keys in  {position}",
+            "I keep my office keys in the {position}",
+            "I think in {position}",
+            "I keep them in the {position}",
+            "I keep it near {position}",
+            "In the {position}",
+            "near {position}",
+            "{position}",
+            "I keep my office keys near {position}"
+          ]
+        },
+        {
+          "name": "Housekeys",
+          "slots": [
+            {
+              "name": "hposition",
+              "type": "positiontype"
+            }
+          ],
+          "samples": [
+            "I keep my home keys in {hposition}",
+            "I keep my home keys near {hposition}",
+            "I keep my house keys in {hposition}",
+            "I keep my house keys near {hposition}",
+            "Home keys are placed in {hposition}",
+            "Home keys are at {hposition}",
+            "House keys are at {hposition}",
+            "House keys are near {hposition}"
+          ]
+        },
+        {
+          "name": "startchecking",
+          "slots": [],
+          "samples": [
+            "Check",
+            "Start checking",
+            "second one",
+            "check for essential things",
+            "Start the check",
+            "Start check"
+          ]
+        },
+        {
+          "name": "capturecontext",
+          "slots": [
+            {
+              "name": "context",
+              "type": "contexttype"
+            }
+          ],
+          "samples": [
+            "I am leaving to office {context}",
+            "I am going to {context} now",
+            "I want to go to {context}",
+            "For {context}",
+            "On a {context}",
+            "To {context}",
+            "{context}",
+            "I am going to {context}",
+            "I am leaving to {context}"
+          ]
+        },
+        {
+          "name": "questionintent",
+          "slots": [
+            {
+              "name": "things",
+              "type": "thingstype",
+              "samples": [
+                "I am looking for my {things}",
+                "I want my {things}",
+                "where is my {things}"
+              ]
+            }
+          ],
+          "samples": [
+            "where is the {things}",
+            "Where isthe {things}",
+            "Do you know Where did I kept my {things}",
+            "Where did I placed my {things}",
+            "Can you tell me where did I kept my {things}",
+            "Where is my {things}",
+            "Where are my {things}",
+            "Where did I kept my {things}"
+          ]
+        },
+        {
+          "name": "PurseIntent",
+          "slots": [
+            {
+              "name": "pposition",
+              "type": "positiontype"
+            }
+          ],
+          "samples": [
+            "I keep the purse near the {pposition}",
+            "I keep the wallet near the {pposition}",
+            "I keep the wallet in {pposition}",
+            "I keep purse {pposition}",
+            "I keep wallet near {pposition}",
+            "I keep my wallet near the {pposition}",
+            "I keep my purse near to the {pposition}",
+            "In the {pposition}",
+            "I kept my wallet near {pposition}",
+            "I keep my wallet in {pposition}",
+            "I keep my purse on {pposition}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "not working",
+                "synonyms": [
+                  "lazy boy",
+                  "bed boy",
+                  "homie",
+                  "housewife",
+                  "not working"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "working",
+                "synonyms": [
+                  "working",
+                  "work"
+                ]
+              }
+            }
+          ],
+          "name": "worktype"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Locker",
+                "synonyms": [
+                  "Cabinet",
+                  "Cupboard"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Shirt",
+                "synonyms": [
+                  "Shirt locker",
+                  "Shirt pocket",
+                  "Shirt"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Pant",
+                "synonyms": [
+                  "Pant",
+                  "Pants",
+                  "trousers",
+                  "troussers ",
+                  "in the pant"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Wallet cabin",
+                "synonyms": [
+                  "Tv stand",
+                  "purse desk",
+                  "wallet desk",
+                  "desk"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Table",
+                "synonyms": [
+                  "Mirror",
+                  "Mirror table",
+                  "Bed",
+                  "Dressing Table"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "keysholder",
+                "synonyms": [
+                  "keys holder",
+                  "keys place",
+                  "keys stand"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "sittingroom",
+                "synonyms": [
+                  "sitting room",
+                  "talking area",
+                  "recreation area"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "livingroom",
+                "synonyms": [
+                  "living room",
+                  "living space",
+                  "living soace",
+                  "living area"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "bedroom",
+                "synonyms": [
+                  "bed room",
+                  "bedroom",
+                  "near the bedroom",
+                  "in the bed room"
+                ]
+              }
+            }
+          ],
+          "name": "positiontype"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "shopping",
+                "synonyms": [
+                  "department store",
+                  "mall",
+                  "shopping",
+                  "market",
+                  "shop"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Vacation",
+                "synonyms": [
+                  "Journey",
+                  "trip",
+                  "tour",
+                  "vacation",
+                  "On a holiday"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Office",
+                "synonyms": [
+                  "office",
+                  "work",
+                  "Work",
+                  "working",
+                  "office place",
+                  "Office",
+                  "Work"
+                ]
+              }
+            }
+          ],
+          "name": "contexttype"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "wallet",
+                "synonyms": [
+                  "money wallet",
+                  "money bag",
+                  "money",
+                  "wallets",
+                  "purses",
+                  "purse"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "housekeys",
+                "synonyms": [
+                  "House lock",
+                  "Home lock",
+                  "Home keys",
+                  "House keys"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "officekeys",
+                "synonyms": [
+                  "office key",
+                  "lock keys",
+                  "room keys",
+                  "office lock",
+                  "office keys"
+                ]
+              }
+            }
+          ],
+          "name": "thingstype"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "questionintent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "things",
+              "type": "thingstype",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.63640393101.462726206235"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.63640393101.462726206235",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Can you tell me what thing of yours are you looking for"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "7"
+}
