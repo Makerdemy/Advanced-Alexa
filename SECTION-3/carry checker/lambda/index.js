@@ -67,9 +67,9 @@ const LaunchRequestHandler = {
     //If user uses the skill for the first time
     if((Object.keys(attributes).length === 0))
     { 
-       speechText = `Hey Hai! Welcome to Carry Checker.I can remember important things for you and also help you in checking 
-       whether you have carried all the essential things with you before you go to office or holiday or shopping.
-           Now, can you tell me What is your name?`;
+       speechText = `Hey Hai! Welcome to Carry Checker.I can remember important things for you an
+       also help you in checking whether you have carried all the essential things with you before
+       you go to office or holiday or shopping.Now, can you tell me What is your name?`;
        console.log(speechText);
     }
     
@@ -82,8 +82,8 @@ const LaunchRequestHandler = {
        let username = attributes.name.toString();
       
       //A different reponse
-       speechText = `Welcome back to carry checker ${username}, What you want to do, Tell me to remember important thing or Start checking 
-       whether you have carried the essential things`;
+       speechText = `Welcome back to carry checker ${username}, What you want to do, Tell me to remember 
+       important thing or Start checking whether you have carried the essential things`;
       
     }
     return handlerInput.responseBuilder
@@ -102,7 +102,10 @@ const UserNameHandler = {
   },
   async handle(handlerInput) {
     const username = handlerInput.requestEnvelope.request.intent.slots.name.value;
-    let speechText = `Nice meeting you ${username}, I want to know few things about you. Tell me whether you are working or not working`;
+    
+    let speechText = `Nice meeting you ${username}, I want to know few things about you.
+    Tell me whether you are working or not working`;
+    
     const repromptText = 'Can you tell me are you working or not?';
     
     
@@ -143,7 +146,8 @@ const workintentHandler = {
      if(handlerInput.requestEnvelope.request.intent.slots.job.value);
     {
       var work = handlerInput.requestEnvelope.request.intent.slots.work.value;
-      var rwork = handlerInput.requestEnvelope.request.intent.slots.work.resolutions.resolutionsPerAuthority[0].values[0].value.name;
+      var rwork = handlerInput.requestEnvelope.request.intent.slots.work.resolutions.
+      resolutionsPerAuthority[0].values[0].value.name;
       attributes.work = work;
       attributesManager.setPersistentAttributes(attributes);
       await attributesManager.savePersistentAttributes();
@@ -322,7 +326,7 @@ const YesNoIntentHandler1 = {
       //Get the session attributes
       const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
       
-      //if the 2nd question is answered, Goto 3rd question marking 2nd question is answered
+      //if the 2nd question is answered, Goto 3rd question marking 3rd question is asked
       if(sessionAttributes.ans1 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent"
       && !sessionAttributes.goto3)
@@ -342,22 +346,6 @@ const YesNoIntentHandler1 = {
         handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
       }
       
-      //To mark that 2nd question is answered
-      else if(!sessionAttributes.ans1)
-      {
-        sessionAttributes.ans1 = true;
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
-      }
-      
-      //if the 3rd question is answered, Goto 4th question marking 3rd question is answered
-      else if(sessionAttributes.goto3 &&
-      handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent" && 
-      !sessionAttributes.goto4)
-      { 
-        speechText = `${DATA.office[3]}`;
-        sessionAttributes.goto4 = true;
-      }
-      
        //if we get NO for 3rd question
       else if(sessionAttributes.goto3 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.NoIntent" && 
@@ -367,7 +355,33 @@ const YesNoIntentHandler1 = {
         sessionAttributes.goto4 = true;
       }
       
-      //if the 4th question is answered, Goto 5th question marking 4th question is answered
+        //if we get NO for 4th question
+      else if(sessionAttributes.goto4 &&
+      handlerInput.requestEnvelope.request.intent.name === "AMAZON.NoIntent" && 
+      !sessionAttributes.goto5)
+      {
+        speechText = `carry them if you require and tell me ${DATA.office[4]}`;
+        sessionAttributes.goto5 = true;
+      }
+      //To mark that 2nd question is answered
+      else if(!sessionAttributes.ans1)
+      {
+        sessionAttributes.ans1 = true;
+        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
+      }
+      
+      //if the 3rd question is answered, Goto 4th question marking 4th question is asked
+      else if(sessionAttributes.goto3 &&
+      handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent" && 
+      !sessionAttributes.goto4)
+      { 
+        speechText = `${DATA.office[3]}`;
+        sessionAttributes.goto4 = true;
+      }
+      
+      
+      
+      //if the 4th question is answered, Goto 5th question marking 5th question is asked
       else if(sessionAttributes.goto4 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent" && 
       !sessionAttributes.goto5)
@@ -376,14 +390,7 @@ const YesNoIntentHandler1 = {
         sessionAttributes.goto5 = true;
       }
       
-       //if we get NO for 4th question
-      else if(sessionAttributes.goto4 &&
-      handlerInput.requestEnvelope.request.intent.name === "AMAZON.NoIntent" && 
-      !sessionAttributes.goto5)
-      {
-        speechText = `carry them if you require and tell me ${DATA.office[4]}`;
-        sessionAttributes.goto5 = true;
-      }
+     
       
       //If the 5th question is answered, then we have a final response
       else if(sessionAttributes.goto5 && 
@@ -427,7 +434,7 @@ const YesNoIntentHandler2 = {
       //Get the session attributes
       const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
       
-      //if the 2nd question is answered, Goto 3rd question marking 2nd question is answered
+       //if the 2nd question is answered, Goto 3rd question marking 3rd question is asked
       if(sessionAttributes.ans1 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent"
       && !sessionAttributes.goto3)
@@ -454,7 +461,7 @@ const YesNoIntentHandler2 = {
         handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
       }
       
-      //if the 3rd question is answered, Goto 4th question marking 3rd question is answered
+      //if the 3rd question is answered, Goto 4th question marking 4th question is asked
       else if(sessionAttributes.goto3 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent" && 
       !sessionAttributes.goto4)
@@ -472,7 +479,7 @@ const YesNoIntentHandler2 = {
         sessionAttributes.goto4 = true;
       }
       
-      //if the 4th question is answered, Goto 5th question marking 4th question is answered
+      //if the 4th question is answered, Goto 5th question marking 5th question is asked
       else if(sessionAttributes.goto4 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent" && 
       !sessionAttributes.goto5)
@@ -531,7 +538,7 @@ const YesNoIntentHandler3 = {
        //Get the session attributes
       const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
       
-      //if the 2nd question is answered, Goto 3rd question marking 2nd question is answered
+      //if the 2nd question is answered, Goto 3rd question marking 3rd question is asked
       if(sessionAttributes.ans1 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent"
       && !sessionAttributes.goto3)
@@ -558,7 +565,7 @@ const YesNoIntentHandler3 = {
         handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
       }
       
-      //if the 3rd question is answered, Goto 4th question marking 3rd question is answered
+      //if the 3rd question is answered, Goto 4th question marking 4th question is asked
       else if(sessionAttributes.goto3 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent" && 
       !sessionAttributes.goto4)
@@ -576,7 +583,7 @@ const YesNoIntentHandler3 = {
         sessionAttributes.goto4 = true;
       }
       
-      //if the 4th question is answered, Goto 5th question marking 4th question is answered
+      //if the 4th question is answered, Goto 5th question marking 5th question is asked
       else if(sessionAttributes.goto4 &&
       handlerInput.requestEnvelope.request.intent.name === "AMAZON.YesIntent" && 
       !sessionAttributes.goto5)
