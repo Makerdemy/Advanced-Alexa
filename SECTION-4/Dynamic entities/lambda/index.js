@@ -5,7 +5,11 @@
 
 //The information about the top cryptocurrencies
 const INFO = [
-["BTC","Bitcoin is a digital currency created in 2009 by a mysterious figure using the alias Satoshi Nakamoto. It can be used to buy or sell items from people and companies that accept bitcoin as payment"],
+  
+  
+["BTC",`Bitcoin is a digital currency created in 2009 by a mysterious figure using
+        the alias Satoshi Nakamoto. It can be used to buy or sell items from people 
+        and companies that accept bitcoin as payment`],
 ["ETH","Ether is used broadly for two purposes: it is traded as a digital currency exchange like other cryptocurrencies and is used inside Ethereum to run applications and even to monetize work"],
 ["XRP","Ripple is a peer-to-peer powered cryptocurrency designed to work seamlessly with the Internet to allow a fast, direct and secure way to send payments on the web. "],
 ["BCH","Bitcoin Cash is an altcoin version of the popular Bitcoin cryptocurrency. Bitcoin Cash is the result of a hard fork in blockchain technology "],
@@ -26,7 +30,7 @@ const INFO = [
 //we use ask-sdk standard version
 const Alexa = require('ask-sdk');
 
-//To get the market changes of the top five cryptocurrencies
+//To get the s of the top five cryptocurrencies
 const checkmarketintenthandler = 
 {
    canHandle(handlerInput) 
@@ -39,16 +43,19 @@ const checkmarketintenthandler =
        const responseBuilder = handlerInput.responseBuilder;
        const market = handlerInput.requestEnvelope.request.intent.slots.market.value;
        let say = market;
-       
-       //we call the function for checking whether there is a match from the dynamic entities
+       console.log(marketid);
+       //we call the function for checking whether there is a match from
+       //the dynamic entities
        let slotValues = getDynamicSlotValues(request.intent.slots);
        let marketid = slotValues.market.resolvedid;
        let resolvedmarket = slotValues.market.resolved;
        
        //No match in the dyanmic entities
-       if( (slotValues.market.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.market.heardAs) )
+       if( (slotValues.market.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  
+       (!slotValues.market.heardAs) )
        {
-        say = "Please repeat for what cryptocurrency are you checking for, or ask me for help";
+        say = `Please repeat for what cryptocurrency are you checking for, 
+        or ask me for help`;
          return responseBuilder
            .speak(say)
            .reprompt(say)
@@ -110,7 +117,7 @@ const checkmarketintenthandler =
          var value;
          var k;
          
-         //checking the user requested crytocurrency with the top five market changes
+         //checking the user requested crytocurrency with the top five market price changes
          for(k=0;k<15;k++)
          {
            if(resolvedmarket === finalresult[k][0])
@@ -133,7 +140,8 @@ const checkmarketintenthandler =
               }
            }
           
-        say = `${resolvedmarket} is ${value} by ${result1} percent. Now if you want to know the other cryptocurrencies market change or rank or price,
+        say = `${resolvedmarket} is ${value} by ${result1} percent. 
+        Now if you want to know the other cryptocurrencies market price change or rank or price,
         just say the command followed by the cryptocurrency namey`;
         
       })
@@ -205,8 +213,8 @@ const LaunchRequestHandler = {
             await attributesManager.savePersistentAttributes();
            console.log(attributes.count);
            attributesManager.setPersistentAttributes(attributes);
-           
            let username = attributes.name.toString();
+           
            //making an api call to the coinmarket api service
            await getRemoteData('https://api.coinmarketcap.com/v1/ticker/?limit=15')
            .then((response) => 
@@ -244,7 +252,7 @@ const LaunchRequestHandler = {
                 });
       
          speechText = `Welcome back ${username}! Recently ${finalresult[0][0]}, ${finalresult[1][0]},
-         ${finalresult[2][0]},${finalresult[3][0]},${finalresult[4][0]} have recorded the top market percent changes.
+         ${finalresult[2][0]},${finalresult[3][0]},${finalresult[4][0]} have recorded the top market price changes.
         If you want to know the clear infomation about these changes, 
         ask me "check, followed by the cryptocurrency name" `;
         
@@ -530,8 +538,9 @@ const NoIntentHandler = {
   async handle(handlerInput) {
     await handlerInput.attributesManager.getSessionAttributes();
     
-    const speechText = `Ok! So I think I have given the rightful information till now, See you soon John. But do comeback because we have much more
-    information like the top market changes, tips and successful stories`;
+    const speechText = `Ok! So I think I have given the rightful information till now, 
+    See you soon John. But do comeback because we have much more
+    information like the top s, tips and successful stories`;
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -631,7 +640,7 @@ const CancelAndStopIntentHandler = {
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
   },
   handle(handlerInput) {
-    const speechText = 'Thanks for using Trading Helper John!. Do visit us daily because we update you about the top market changes and give you tips and many successful stories of cryptocurrency';
+    const speechText = 'Thanks for using Trading Helper John!. Do visit us daily because we update you about the top s and give you tips and many successful stories of cryptocurrency';
 
     return handlerInput.responseBuilder
       .speak(speechText)
