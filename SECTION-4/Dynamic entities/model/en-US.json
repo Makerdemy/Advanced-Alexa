@@ -137,24 +137,6 @@
                     ]
                 },
                 {
-                    "name": "marketpercentintent",
-                    "slots": [],
-                    "samples": [
-                        "Top five",
-                        "Top five market change",
-                        "Say me the Top changes in the cryptocurrency market",
-                        "I want to know the market changes",
-                        "Tell me the market change",
-                        "Tell me the market changes",
-                        "Top changes in the cryptocurrency market",
-                        "Top changes",
-                        "Top cryptocurrency market percent changes",
-                        "Top market changes",
-                        "Top five market changes",
-                        "Tell me the top five market changes"
-                    ]
-                },
-                {
                     "name": "checkmarketintent",
                     "slots": [
                         {
@@ -169,34 +151,6 @@
                         "What is the market price change for {market}",
                         "check for {market}",
                         "check {market}"
-                    ]
-                },
-                {
-                    "name": "whatcanIbuyintent",
-                    "slots": [],
-                    "samples": [
-                        "what to buy",
-                        "what is there to buy",
-                        "what can I purchase",
-                        "What are available to buy",
-                        "what are available for purchase",
-                        "What can I buy"
-                    ]
-                },
-                {
-                    "name": "buyintent",
-                    "slots": [
-                        {
-                            "name": "category",
-                            "type": "categorytype"
-                        }
-                    ],
-                    "samples": [
-                        "Buy the {category} pack",
-                        "Buy the {category}",
-                        "I want to purchase {category}",
-                        "Buy {category}",
-                        "I want to buy {category}"
                     ]
                 }
             ],
@@ -330,32 +284,6 @@
                                     "Coin Bit",
                                     "Bit coin",
                                     "Bitcoin"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "categorytype",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "Tips",
-                                "synonyms": [
-                                    "TIPS",
-                                    "tips",
-                                    "Tips"
-                                ]
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Story",
-                                "synonyms": [
-                                    "STORY",
-                                    "STROY",
-                                    "story",
-                                    "Story packk"
                                 ]
                             }
                         }
