@@ -130,11 +130,10 @@
                         "tell me the rank",
                         "what is the rank",
                         "{rank}",
-                        "Tell me rank of {rank}",
+                        "Tell me the rank of {rank}",
                         "what's the rank of {rank}",
                         "Whats the rank of {rank}",
-                        "What is the rank of {rank}",
-                        "Tell me the rank of {rank}"
+                        "What is the rank of {rank}"
                     ]
                 },
                 {
@@ -164,10 +163,10 @@
                         }
                     ],
                     "samples": [
-                        "check for market change of {market}",
-                        "check the market change of {market}",
-                        "Hows the market change for {market}",
-                        "What is the market change for {market}",
+                        "check for market price change of {market}",
+                        "check the market price change of {market}",
+                        "Hows the market price change for {market}",
+                        "What is the market price change for {market}",
                         "check for {market}",
                         "check {market}"
                     ]
