@@ -170,7 +170,7 @@ const checkmarketintenthandler =
           
         
       
-        say = `${resolvedmarket} is ${value} by ${result1}`;
+        say = `${resolvedmarket} is ${value} by ${result1} percent`;
         
       })
       //To catch the error
@@ -215,7 +215,7 @@ const LaunchRequestHandler = {
     var speechText;
      if((Object.keys(attributes).length === 0))
     { 
-       speechText = `Welcome to the Trading Helper, we help you in getting the latest information about 
+       speechText = `Welcome to the Cryptocurrency Helper, we help you in getting the latest information about 
     cryptocurrency. <break time="10ms"/>Before moving on,May I know your name?`;
        console.log(speechText);
        
@@ -269,7 +269,7 @@ const LaunchRequestHandler = {
         });
       
         speechText = `Welcome back ${username}! Recently ${finalresult[0][0]}, ${finalresult[1][0]},
-       ${finalresult[2][0]},${finalresult[3][0]},${finalresult[4][0]} have recorded the top market percent changes.
+       ${finalresult[2][0]},${finalresult[3][0]},${finalresult[4][0]} have recorded the top market price changes.
         If you want to know the clear infomation about these changes, 
         ask me "check, followed by the cryptocurrency name" `;
         
