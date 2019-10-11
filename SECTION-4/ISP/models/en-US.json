@@ -142,9 +142,9 @@
                     "slots": [],
                     "samples": [
                         "Top five",
-                        "Top five market change",
-                        "Say me the Top changes in the cryptocurrency market",
-                        "I want to know the market changes",
+                        "Top five market price changes",
+                        "Say me the Top market price changes in the cryptocurrency market",
+                        "I want to know the market price changes",
                         "Tell me the market change",
                         "Tell me the market changes",
                         "Top changes in the cryptocurrency market",
@@ -164,10 +164,10 @@
                         }
                     ],
                     "samples": [
-                        "check for market change of {market}",
-                        "check the market change of {market}",
-                        "Hows the market change for {market}",
-                        "What is the market change for {market}",
+                        "check for market price change of {market}",
+                        "check the market price change of {market}",
+                        "Hows the market price change of {market}",
+                        "What is the market price change for {market}",
                         "check for {market}",
                         "check {market}"
                     ]
